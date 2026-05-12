@@ -29,6 +29,7 @@ public class Vehicle extends Asset{
     public void setOdometer(int odometer){
         this.odometer = odometer;
     }
+    //Override
     @Override
     public double getValue() {
 //        int currentYear = year.now().getValue();
