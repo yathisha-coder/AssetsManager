@@ -29,6 +29,29 @@ public class Vehicle extends Asset{
     public void setOdometer(int odometer){
         this.odometer = odometer;
     }
-
-
+    @Override
+    public double getValue() {
+//        int currentYear = year.now().getValue();
+//        int age = currentYear - year;
+        double value = getOriginalCost();
+        if (year>= 0 && year <= 3) {
+           value -= value * (0.03 * year);
+        } else if (year >= 4 && year <= 6) {
+           value -= value * (0.06 * year);
+        } else if (year >= 7 && year<=10) {
+            value -= value * (0.08 * year);
+        } else  {
+           value = value -1000;
+        }
+        if (odometer > 100000){
+            if(!makeModel.contains("Honda") &&
+            !makeModel.contains("Toyota")){
+                value *= 0.75;
+            }
+        }
+        return value;
+    }
 }
+
+
+
